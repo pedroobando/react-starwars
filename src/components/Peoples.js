@@ -9,7 +9,7 @@ const fetchPeoples = async () => {
 
 export const Peoples = () => {
   const { data, status } = useQuery("peoples", fetchPeoples);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="mx-auto my-3">

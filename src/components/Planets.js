@@ -8,8 +8,12 @@ const fetchPlanets = async () => {
 };
 
 export const Planets = () => {
-  const { data, status } = useQuery("planets", fetchPlanets);
-  console.log(data);
+  const { data, status } = useQuery("planets", fetchPlanets, {
+    // staleTime: 0,
+    // cacheTime: 1000,
+    onSuccess: (e) => console.log("Data cargada sin error"),
+  });
+  // console.log(data);
 
   return (
     <div className="mx-auto my-3">
