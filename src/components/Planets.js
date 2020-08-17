@@ -10,15 +10,11 @@ const fetchPlanets = async (key, page) => {
 
 export const Planets = () => {
   const [page, setPage] = useState(1);
-  const { resolvedData, latestData, status } = usePaginatedQuery(
-    ["planets", page],
-    fetchPlanets,
-    {
-      // staleTime: 0,
-      // cacheTime: 1000,
-      // onSuccess: (e) => console.log("Data cargada sin error"),
-    }
-  );
+  const { resolvedData, status } = usePaginatedQuery(["planets", page], fetchPlanets, {
+    // staleTime: 0,
+    // cacheTime: 1000,
+    // onSuccess: (e) => console.log("Data cargada sin error"),
+  });
   const handleClickPage = useCallback((pag) => {
     setPage(pag);
     // console.log(pag);
@@ -26,8 +22,6 @@ export const Planets = () => {
 
   return (
     <div className="mx-auto my-3">
-      <p>{status}</p>
-
       {status === "loading" && <div>Loading data...</div>}
 
       {status === "error" && <div>Error fething data...</div>}
@@ -45,7 +39,7 @@ export const Planets = () => {
 
           <div className="row my-2">
             {resolvedData.results.map((planet) => (
-              <PlanetItem key={planet.name} {...planet} setPage={handleClickPage} />
+              <PlanetItem key={planet.name} {...planet} />
             ))}
           </div>
         </>
