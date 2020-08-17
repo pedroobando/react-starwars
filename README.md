@@ -1,6 +1,6 @@
 # react-starwars
 
-> Un sencillo ejemplo que demuestra el uso de un CustomHooks
+> Un sencillo ejemplo que demuestra el uso de un CustomHooks -[React-Query](https://react-query.tanstack.com/)
 
 > Consume un EndPoint, manteniendo un cache de los datos por un tiempo definido. Bueno para las paginacion porque no hace falta llamar al endpoint de nuevo, si los datos son muy actuales.
 
